@@ -4,6 +4,7 @@
 
 #include "libft.h"
 #include <stdlib.h>
+#include <stdint.h>
 
 static int	_isspace(char c)
 {
@@ -30,6 +31,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*temp;
 
+	if (count == SIZE_MAX && size == SIZE_MAX)
+		return (NULL);
 	temp = malloc(count * size);
 	if (temp)
 		ft_bzero(temp, count * size);
