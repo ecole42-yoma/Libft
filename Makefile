@@ -57,7 +57,7 @@ $(NAME)		:	$(OBJECT)
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c $(INC_DIR)
 		$(CC) $(C_FLAG) $(LIB_LNK) -o $@ -c $<
 
-$(OBJ_DIR)	:	
+$(OBJ_DIR)	:
 		mkdir -p $(OBJ_DIR)
 
 $(OBJECT)	:	| $(OBJ_DIR)
@@ -71,16 +71,16 @@ clean		:
 f			:	fclean
 fclear		:	fclean
 fclean		:
-		@make clean
+		make clean
 		$(RM) $(RM_FLAG) $(NAME)
 
 re			:
-		@make fclean
-		@make all
+		make fclean
+		make all
 
 b			:	bonus
 bonus		:
-		@make WITH_BONUS=1 all
+		make WITH_BONUS=1 all
 
 #==============================================================================
 #░░░░░░░░░░░░░░░░░░░░██╗░░░██╗░█████╗░███╗░░░███╗░█████╗░░░░░░░░░░░░░░░░░░░░░░░
