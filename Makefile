@@ -54,7 +54,7 @@ all			:	$(NAME)
 $(NAME)		:	$(OBJECT)
 		$(AR) $(AR_FLAG) $@ $^
 
-$(OBJ_DIR)%.o:	$(SRC_DIR)%.c $(INC_DIR)
+$(OBJ_DIR)%.o:	$(SRC_DIR)%.c
 		$(CC) $(C_FLAG) $(LIB_LNK) -o $@ -c $<
 
 $(OBJ_DIR)	:
