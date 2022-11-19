@@ -6,7 +6,7 @@
 #    By: yongmkim <yongmkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/08 14:27:22 by yongmkim          #+#    #+#              #
-#    Updated: 2022/10/17 15:30:59 by yongmkim         ###   ########.fr        #
+#    Updated: 2022/11/19 19:11:17 by yongmkim         ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ NAME		=	libft.a
 
 CC			=	cc
 C_W_FLAG	=	all extra error
-C_FLAG		:=	$(addprefix -W, $(C_W_FLAG))
-RM			=	rm
-RM_FLAG		=	-rf
+CFLAGS		:=	$(addprefix -W, $(C_W_FLAG))
+# RM			=	rm
+RM_FLAG		=	-r
 AR			=	ar
-AR_FLAG		=	rcus
+ARFLAGS		=	rcus
 
 SRC			=	ft_libc_ctype_convert.c \
 				ft_libc_ctype_syntax.c \
@@ -48,14 +48,17 @@ endif
 #==============================================================================
 #	Make Part
 #==============================================================================
+
+.DEFAULT_GOAL	:=	all
+
 .PHONY		:	all
 all			:	$(NAME)
 
 $(NAME)		:	$(OBJECT)
-		$(AR) $(AR_FLAG) $@ $^
+		$(AR) $(ARFLAGS) $@ $^
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c
-		$(CC) $(C_FLAG) $(LIB_LNK) -o $@ -c $<
+		$(CC) $(CFLAGS) $(LIB_LNK) -o $@ -c $<
 
 $(OBJ_DIR)	:
 		mkdir -p $(OBJ_DIR)
